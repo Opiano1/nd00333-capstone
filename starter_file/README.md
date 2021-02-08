@@ -75,16 +75,79 @@ TabularDataset is created using methods like azureml.data.dataset_factory.Tabula
 
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+The AutoMl setting contains parameters as explained below, and the value I choose for each parameter.
+
+ `Featurization` = auto - FeaturizationConfig Indicator for whether featurization step should be done automatically or not, or whether customized featurization should be used.
+
+`n_cross_validations` = 4 - How many cross validations to perform when user validation data is not specified.
+
+`experiment_timeout_minutes` = 30 - Maximum amount of time in hours that all iterations combined can take before the experiment terminates.
+
+`enable_early_stopping` = True - Whether to enable early termination if the score is not improving in the short term. The default is False.
+
+`verbosity = logging.INFO` - The verbosity level for writing to the log file.
+
+## AutoML Config Details
+Just like the above for AutoML setting, find below the details for the AutoML Config.
+
+`experiment_timeout_minutes` = 30 - Maximum amount of time in hours that all iterations combined can take before the experiment terminates.
+
+`task` = classification - This is the type of task to be run, in this case, it is a classification task. The model predicts whether a particular user will default on the loan.
+
+`primary_metric` = accuracy - This is the metric that the AutoML will optimize for model selection. For this classfication task, accuracy was used.
+
+`training_data` = df_train - This is the training dataset which is a dataframe of the pre-processed data set. It will be used within the experiment, so it contains both the training features and a label column.
+
+`label_column_name` = "Promoted_or_Not" - This is the name of the label column, and it indicates the Loan Status, whether the applicant defaulted on the loan or not.
+
+n_cross_validations = 5 - This is the number of cross validations to perform when user validation data is not specified.
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+The completed automl experiment is shown below. The best model is the `VotingEnsemble` model with an accuracy of `94.199%` as seen on top of the list:
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![](images/AutoML3.JPG)
+
+Various metrics of the best model is seen below:
+![](images/metrics.JPG)
+
+### Other Results
+![](images/images/AutoML/1.JPG)
+
+![](images/images/AutoML/2.JPG)
+
+![](images/images/AutoML/3.JPG)
+
+![](images/images/AutoML/4.JPG)
+
+![](images/images/AutoML/7.JPG)
+
+### Best model and runID
+![](images/images/AutoML/9.JPG)
+
+![](images/images/AutoML/10.JPG)
+
+
+### Best estimator from best model
+![](images/images/AutoML/fit1.JPG)
+
+![](images/images/AutoML/fit2.JPG)
+
+### RunWidget
+![](images/images/AutoML/run-completed.JPG)
+
+### Best Model already registered with it's RunID & other Metrics
+![](images/images/AutoML/12.JPG)
+
+![](images/images/AutoML/13.JPG)
+
+### Suggestions for possible improvement
+* Increase experiment timeout duration. This would allow for more model experimentation, but at expense of cost.
+* Try a different primary metric. Sometimes accuracy alone doesn't represent true picture of the model's performance. Recall or precision are more specific metrics in related classification problems.
+* Tweak some other AutoML confirguration parameters including number of cross validation to reduce model bias.
+* Feature Engineering - Engineer new features which may be helpful in improving the model
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
-
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
@@ -92,9 +155,19 @@ TabularDataset is created using methods like azureml.data.dataset_factory.Tabula
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+The healthy endpoint is seen below ;
+![](images/images/AutoML/14.JPG)
 
-## Screen Recording
+![](images/images/AutoML/15.JPG)
+
+The deployed model is the best performer from AutoML - a VotingEnsemble regressor that has been registered - and as seen above, has an active endpoint at the specified scoring URI. To query the endpoint:
+
+* sample test data
+
+![](images/images/AutoML/response1.JPG)
+
+All the data parameters are adopted as a dictionary and converted to json for inputting to a scoring script. The cell is then run the code. This results in the scoring script 'score.py' runs the saved registered model and producing a response if the employee will be promoted or not as `1` or `0`
+![](images/images/AutoML/response2.JPG)
 
 ## Screen Recording
 <a href='https://www.youtube.com/watch?v=V94ir1j47so'>Recordings</a>
