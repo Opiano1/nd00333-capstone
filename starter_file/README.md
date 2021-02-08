@@ -147,12 +147,42 @@ Various metrics of the best model is seen below:
 * Feature Engineering - Engineer new features which may be helpful in improving the model
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+Given that the problem is a classification Supervised learning task, this inspired using the baseline Logistic Regression model to train the algorithm. 
+
+### Overview of the hyperparameters used
+Hyperparameters are adjustable parameters that let you control the model training process. Hyperparameter tuning is the process of finding the configuration of hyperparameters that results in the best performance. The process is typically computationally expensive and manual.
+
+The two hyperparamters used in this experiment are C and max_iter. C is the Inverse Regularization Strength which applies a penalty to stop increasing the magnitude of parameter values in order to reduce overfitting. max_iter is the maximum iteration to converge for the SKLearn Logistic Regression algorithm.
+
+The hyperparameter search range used for `C` is `[1, 2, 3, 4, 5, 6]` and for `max_iter` is `[50, 100, 150, 200, 250, 300]`.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+The Hyperdrive run and outputs are shown below;
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![](images/hyperdrive/run-completed.JPG)
+
+##### RunDetails widget showing progress of training runs from experiments
+![](images/hyperdrive/run3b.JPG)
+
+![](images/hyperdrive/run3.JPG)
+
+#### Best Hyperdrive model trained with its hyperparameter settings
+![](images/hyperdrive/run4.JPG)
+
+![](images/hyperdrive/run4b.JPG)
+
+### Metrics
+![](images/hyperdrive/run5.JPG)
+
+As seen above the Hyperdrive model had an accuracy of `93.7%`
+
+### Suggestions for possible improvement
+* Performing more Data Preprocessing from the `clean data function`: 
+* Parameter sampling can be carried out more effectively. Increase in RandomParameterSampling or start with a wide range of values for each parameter, then refine the search space.
+* Try other algorithms like Ensemble - Gradient Boosting, Catboost etc.
+* Apply other types of parameter sampling including the Bayesian Parameter Sampling. Bayesian sampling tries to intelligently pick the next sample of hyperparameters, based on how the previous samples performed, such that the new sample improves the reported primary metric.
+* Accuracy is not the only evaluation metric process, it would also be nice to explore some other statistical evaluation metrics.
+
 
 ## Model Deployment
 The healthy endpoint is seen below ;
