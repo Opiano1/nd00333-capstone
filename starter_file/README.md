@@ -202,4 +202,4 @@ All the data parameters are adopted as a dictionary and converted to json for in
 ![](images/AutoML/response2.JPG)
 
 ## Screen Recording
-<a href='hhttps://www.youtube.com/watch?v=cVdyS_ndHBc'>Recordings</a>
+<a href='https://www.youtube.com/watch?v=cVdyS_ndHBc'>Recordings</a>
