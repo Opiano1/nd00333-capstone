@@ -105,40 +105,40 @@ n_cross_validations = 5 - This is the number of cross validations to perform whe
 ### Results
 The completed automl experiment is shown below. The best model is the `VotingEnsemble` model with an accuracy of `94.199%` as seen on top of the list:
 
-![](images/AutoML3.JPG)
+![](images/AutoML/AutoML3.JPG)
 
 Various metrics of the best model is seen below:
 ![](images/metrics.JPG)
 
 ### Other Results
-![](images/images/AutoML/1.JPG)
+![](images/AutoML/1.JPG)
 
-![](images/images/AutoML/2.JPG)
+![](images/AutoML/2.JPG)
 
-![](images/images/AutoML/3.JPG)
+![](images/AutoML/3.JPG)
 
-![](images/images/AutoML/4.JPG)
+![](images/AutoML/4.JPG)
 
-![](images/images/AutoML/7.JPG)
+![](images/AutoML/7.JPG)
 
 ### Best model and runID
-![](images/images/AutoML/9.JPG)
+![](images/AutoML/9.JPG)
 
-![](images/images/AutoML/10.JPG)
+![](images/AutoML/10.JPG)
 
 
 ### Best estimator from best model
-![](images/images/AutoML/fit1.JPG)
+![](images/AutoML/fit1.JPG)
 
-![](images/images/AutoML/fit2.JPG)
+![](images/AutoML/fit2.JPG)
 
 ### RunWidget
-![](images/images/AutoML/run-completed.JPG)
+![](images/AutoML/run-completed.JPG)
 
 ### Best Model already registered with it's RunID & other Metrics
-![](images/images/AutoML/12.JPG)
+![](images/AutoML/12.JPG)
 
-![](images/images/AutoML/13.JPG)
+![](images/AutoML/13.JPG)
 
 ### Suggestions for possible improvement
 * Increase experiment timeout duration. This would allow for more model experimentation, but at expense of cost.
@@ -156,18 +156,18 @@ Various metrics of the best model is seen below:
 
 ## Model Deployment
 The healthy endpoint is seen below ;
-![](images/images/AutoML/14.JPG)
+![](images/AutoML/14.JPG)
 
-![](images/images/AutoML/15.JPG)
+![](images/AutoML/15.JPG)
 
 The deployed model is the best performer from AutoML - a VotingEnsemble regressor that has been registered - and as seen above, has an active endpoint at the specified scoring URI. To query the endpoint:
 
 * sample test data
 
-![](images/images/AutoML/response1.JPG)
+![](images/AutoML/response1.JPG)
 
 All the data parameters are adopted as a dictionary and converted to json for inputting to a scoring script. The cell is then run the code. This results in the scoring script 'score.py' runs the saved registered model and producing a response if the employee will be promoted or not as `1` or `0`
-![](images/images/AutoML/response2.JPG)
+![](images/AutoML/response2.JPG)
 
 ## Screen Recording
 <a href='https://www.youtube.com/watch?v=V94ir1j47so'>Recordings</a>
