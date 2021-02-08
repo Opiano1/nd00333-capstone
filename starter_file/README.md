@@ -1,6 +1,6 @@
 # Data Science Nigeria Staff Promotion Algorithm
 
-This is the capstone project Udacity Machine Learning with Microsoft Azure Nanodegree. In this project, we built a machine learning model to Predicting staff that are likely to be promoted based on defined personal and performance parameters. We built the model using HyperDrive Config and AUtoML run, and deployed the model as a service.
+This is the capstone project Udacity Machine Learning with Microsoft Azure Nanodegree. In this project, we built a machine learning model to Predicting staff that are likely to be promoted based on defined personal and performance parameters. We ran two different experiments with HyperDrive and AutoML respectively, and then chose the best model from the two to deploy
 
 ## Project Set Up and Installation
 To set up this project in AzureML, kindly ensure the following are checked:
@@ -166,6 +166,8 @@ The Hyperdrive run and outputs are shown below;
 
 ![](images/hyperdrive/run3.JPG)
 
+![](images/hyperdrive/run3c.JPG)
+
 #### Best Hyperdrive model trained with its hyperparameter settings
 ![](images/hyperdrive/run4.JPG)
 
@@ -200,4 +202,4 @@ All the data parameters are adopted as a dictionary and converted to json for in
 ![](images/AutoML/response2.JPG)
 
 ## Screen Recording
-<a href='https://www.youtube.com/watch?v=V94ir1j47so'>Recordings</a>
+<a href='hhttps://www.youtube.com/watch?v=cVdyS_ndHBc'>Recordings</a>
